@@ -151,10 +151,12 @@ class _LocationSelectionScreenState extends State<LocationSelectionScreen> {
         itemBuilder: (context, index) {
           final location = _filteredLocations[index];
           return ListTile(
+
             title: Text(location.name, style: BlaTextStyles.body),
             subtitle: Text(location.country.name, style: BlaTextStyles.label),
             trailing: Icon(Icons.arrow_forward_ios,
                 color: BlaColors.iconLight, size: 16),
+
             onTap: () => widget.onLocationSelected(location),
           );
         },
