@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutterterm2/app-widgets/location.dart';
 import 'package:flutterterm2/screens/ride_pref/widgets/custom_button.dart';
+import 'package:flutterterm2/screens/ride_pref/widgets/Ride/ride_screen.dart';
 import 'package:flutterterm2/theme/theme.dart';
 
 import '../../../app-widgets/date.dart';
 import '../../../app-widgets/seat_number.dart';
+import '../../../dummy_data/dummy_data.dart';
 import '../../../model/ride/locations.dart';
 import '../../../model/ride_pref/ride_pref.dart';
 import 'form.dart';
@@ -94,7 +96,17 @@ class _RidePrefFormState extends State<RidePrefForm> {
         requestedSeats: requestedSeats,
       );
 
-      Navigator.pop(context, ridePref);
+
+      //search to find the driver
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => RidesScreen(
+            ridePref: ridePref,
+            rides: fakeRides,
+          ),
+        ),
+      );
     }
   }
 
